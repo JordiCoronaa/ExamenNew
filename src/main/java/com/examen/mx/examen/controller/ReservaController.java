@@ -24,7 +24,11 @@ public class ReservaController {
     @GetMapping
     public ResponseEntity<List<Reserva>> obtenerTodasLasReservas() {
         List<Reserva> reservas = reservaService.obtenerTodasLasReservas();
-        return new ResponseEntity<>(reservas, HttpStatus.OK);
+        if (reservas != null) {
+            return new ResponseEntity<>(reservas, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(reservas, HttpStatus.OK);
+        }
     }
 
     @GetMapping("/{id}")
